@@ -33,8 +33,8 @@ public class FileWrapperHelper {
     }
 
     private byte[] getByteArrayOutputStream(List<File> files) throws IOException {
-        try ( ByteArrayOutputStream baos = new ByteArrayOutputStream();
-              ZipOutputStream zos = new ZipOutputStream(baos)) {
+        try (ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+             ZipOutputStream zos = new ZipOutputStream(byteArrayOutputStream)) {
             for (File file : files) {
                 try (FileInputStream fis = new FileInputStream(file)) {
                     ZipEntry entry = new ZipEntry(file.getName());
@@ -50,7 +50,7 @@ public class FileWrapperHelper {
             }
 
             zos.finish();
-            return baos.toByteArray();
+            return byteArrayOutputStream.toByteArray();
         }
     }
 

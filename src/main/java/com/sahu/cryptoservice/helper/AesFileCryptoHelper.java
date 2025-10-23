@@ -32,7 +32,7 @@ public class AesFileCryptoHelper {
             return Base64.getEncoder().encodeToString(secretKey.getEncoded());
         } catch (Exception e) {
             log.error("Error generating secret key: {}", e.getMessage(), e);
-            return null;
+            throw new IllegalArgumentException("Error generating secret key", e);
         }
     }
 
@@ -73,7 +73,7 @@ public class AesFileCryptoHelper {
 
             // Create a temporary file
             log.info("Starting encryption for file: {}", file.getOriginalFilename());
-            File encryptedFile = new  File(Objects.requireNonNull(file.getOriginalFilename()) + FileConstant.ENCRYPTED_FILE_SUFFIX.getValue());
+            File encryptedFile = new File(Objects.requireNonNull(file.getOriginalFilename()) + FileConstant.ENCRYPTED_FILE_SUFFIX.getValue());
 
             try (InputStream inputStream = file.getInputStream();
                  FileOutputStream outputStream = new FileOutputStream(encryptedFile)) {
@@ -89,8 +89,7 @@ public class AesFileCryptoHelper {
             }
 
             return encryptedFile;
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             log.error("Error encrypting file: {}", e.getMessage(), e);
             throw new IllegalArgumentException("Error encrypting file", e);
         }

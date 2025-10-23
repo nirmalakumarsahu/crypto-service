@@ -43,7 +43,7 @@ public class CryptoServiceImpl implements CryptoService {
                 wrappedFile = fileWrapperHelper.wrapFilesAsGzip(List.of(encryptedFile, aesKeyFile), encryptedFile.getName());
             }
 
-            ResourceResponse response =  ResourceResponse.builder()
+            ResourceResponse response = ResourceResponse.builder()
                     .resource(new FileSystemResource(wrappedFile))
                     .fileName(wrappedFile.getName())
                     .build();

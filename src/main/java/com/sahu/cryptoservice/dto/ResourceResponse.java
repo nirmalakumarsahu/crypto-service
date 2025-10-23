@@ -7,5 +7,6 @@ import org.springframework.core.io.Resource;
 public record ResourceResponse(
         Resource resource,
         String fileName
-) {
+)
+{
 }
