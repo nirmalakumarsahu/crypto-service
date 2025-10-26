@@ -24,8 +24,8 @@ springdoc:
     path: /api-docs
 
 openapi:
-  title: 🚀 Spring Boot Email Integration with Gmail
-  description: A Spring Boot application demonstrating email sending functionality using Gmail's SMTP server. This application showcases how to configure and send emails programmatically using Spring Boot and JavaMailSender.
+  title: 🚀 Spring Boot Crypto Service
+  description: A Spring Boot application that provides cryptographic services including encryption, decryption, and hashing functionalities.
   version: 1.0.0
   contact:
     name: Nirmala Sahu

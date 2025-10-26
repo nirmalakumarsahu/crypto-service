@@ -1,4 +1,4 @@
-package com.sahu.cryptoservice.dto;
+package com.sahu.cryptoservice.dto.response;
 
 import lombok.Builder;
 import org.springframework.core.io.Resource;

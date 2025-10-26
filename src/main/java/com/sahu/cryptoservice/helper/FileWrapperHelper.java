@@ -20,7 +20,7 @@ public class FileWrapperHelper {
         Assert.notNull(wrapperFileName, "Wrapper file name must not be null");
 
         try {
-            File wrappedFile = new File(wrapperFileName + FileConstant.GZIP_FILE_SUFFIX.toString());
+            File wrappedFile = new File(wrapperFileName + FileConstant.GZIP_FILE_SUFFIX);
 
             try (FileOutputStream fos = new FileOutputStream(wrappedFile)) {
                 fos.write(getByteArrayOutputStream(files));
